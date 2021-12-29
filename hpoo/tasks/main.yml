@@ -2,4 +2,4 @@
 # tasks file for hpoo
 - name: SQL Query
   shell: |
-    sqlcmd -S {{ server }} -U {{ user }} -P {{ password }} -i topmem.sql
+    sqlcmd -S {{ server }} -U {{ user }} -P {{ password }} -i "~/hpoo/files/topmem.sql"
