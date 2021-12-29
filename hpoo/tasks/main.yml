@@ -3,4 +3,4 @@
 - name: SQL Query
   shell: |
     pwd
-    sqlcmd -S {{ server }} -U {{ user }} -P {{ password }} -i "files/test.sql"
+    sqlcmd -S {{ server }} -U {{ user }} -P {{ password }} -i "%3\test.sql"
