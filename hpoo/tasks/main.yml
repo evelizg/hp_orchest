@@ -3,4 +3,3 @@
 - name: SQL Query
   shell: |    
     sqlcmd -S {{ server }} -U {{ user }} -P {{ password }} -d {{ database }} -i "hpoo/files/services.sql"
-  result: topmem

@@ -111,7 +111,7 @@ SELECT  ServiceName AS 'ServiceName'
    ,ServerName 
    ,PhysicalSrverName
 FROM #ServiceStatus
---FOR XML PATH('qs'),TYPE
+FOR XML PATH('qs'),TYPE
 
 
 /*Perform cleanup*/
