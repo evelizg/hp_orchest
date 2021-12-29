@@ -1,6 +1,6 @@
 ---
 # tasks file for hpoo
 - name: SQL Query
-  shell: |
-    pwd
-    sqlcmd -S {{ server }} -U {{ user }} -P {{ password }} -i "hpoo/files/topmem.sql"
+  shell: |    
+    sqlcmd -S {{ server }} -U {{ user }} -P {{ password }} -d {{ database } -i "hpoo/files/services.sql"
+  result: topmem

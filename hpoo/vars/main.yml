@@ -3,4 +3,4 @@
 server: 10.100.13.23
 user: sa
 password: m3j0r4Passw0rd
-#database: demo
+database: master
