@@ -1,0 +1,1 @@
+select HOST_NAME()
