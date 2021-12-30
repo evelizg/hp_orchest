@@ -113,7 +113,6 @@ SELECT  ServiceName AS 'ServiceName'
 FROM #ServiceStatus
 FOR JSON PATH
 
-
 /*Perform cleanup*/
 
 DROP TABLE #ServiceStatus    
