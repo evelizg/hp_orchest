@@ -5,6 +5,6 @@
     sqlcmd -S {{ server }} -U {{ user }} -P {{ password }} -d {{ database }} -i "hpoo/files/services.sql"
   register: result
 
-- name : Mostrar Estado
+- name: Mostrar Estado
   debug:
-  msg: "{{ result.stdout_lines }}"
+    msg: "{{ result.stdout_lines }}"
