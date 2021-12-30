@@ -111,6 +111,7 @@ SELECT  ServiceName AS 'ServiceName'
    ,ServerName 
    ,PhysicalSrverName
 FROM #ServiceStatus
+FOR JSON PATH
 
 /*Perform cleanup*/
 
