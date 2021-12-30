@@ -27,7 +27,7 @@
 
  - name: transform
   shell: |    
-  cat "{{ base_dir }}/output/result.txt" | jq -Rs '{"data": [split("\n") | map(select(length > 0))[] | split(" +";"g") | {"{#ServiceName}": .[0], "{#ServiceStatus}": .[1], "{#StatusDateTime}": .[2], "{#ServerName}": .[3], "{#PhysicalSrverName}": .[4]}]}'
+    cat "{{ base_dir }}/output/result.txt" | jq -Rs '{"data": [split("\n") | map(select(length > 0))[] | split(" +";"g") | {"{#ServiceName}": .[0], "{#ServiceStatus}": .[1], "{#StatusDateTime}": .[2], "{#ServerName}": .[3], "{#PhysicalSrverName}": .[4]}]}'
 
 # - name: read
 #   shell: |
