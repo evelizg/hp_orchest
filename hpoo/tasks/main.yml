@@ -29,9 +29,14 @@
 
 - local_action: copy content= dest="{{ base_dir }}/output/result.json"
 
-# - name: read
-#   debug:
-#     msg: "{{ base_dir }}/output/result.json"
+- name: pre-read
+  shell: |
+    cat "{{ base_dir }}/output/result.json"
+  register: result02  
+
+- name: read
+  debug:
+    msg: "{{ result02.stdout_lines }}"
 
 # - name: Copy file with owner and permissions
 #   copy:
