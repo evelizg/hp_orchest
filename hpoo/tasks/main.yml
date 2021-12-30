@@ -27,21 +27,16 @@
   register: result
   ignore_errors: True
 
-- local_action: copy content= dest="{{ base_dir }}/output/result.json"
-
-- name: pre-read
-  shell: |
-    cat "{{ base_dir }}/output/result.json"
-  register: result02  
-
-- name: read
-  debug:
-    msg: "{{ result02.stdout_lines }}"
+- name: copy the output to a local file
+  copy:
+    content: "{{ result.stdout }}"
+    dest: "{{ base_dir }}/output/result.json"
+  delegate_to: localhost
 
 # - name: Copy file with owner and permissions
 #   copy:
 #     src: result
-#     dest: "{{ base_dir }}/result.json"
+#     dest: "{{ base_dir }}/output/result.json"
 #     owner: 1000
 #     group: 1000
 #     mode: '0644'
