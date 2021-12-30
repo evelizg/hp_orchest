@@ -23,12 +23,12 @@
 # tasks file for hpoo
 - name: SQL Query
   shell: |    
-    sqlcmd -S {{ server }} -U {{ user }} -P {{ password }} -d {{ database }} -i "hpoo/files/services.sql" -o "{{ base_dir }}/output/result.txt"
+    sqlcmd -S {{ server }} -U {{ user }} -P {{ password }} -d {{ database }} -i "hpoo/files/services.sql" -o "{{ base_dir }}/output/result.json"
 
 - name: read
   shell: |
-    cat "{{ base_dir }}/output/result.txt"
-    
+    cat "{{ base_dir }}/output/result.json"
+
 # - name: copy the output to a local file
 #   copy:
 #     content: "{{ result.stdout }}"
