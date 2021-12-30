@@ -27,10 +27,11 @@
   register: result
   ignore_errors: True
 
-- local_action: copy content= dest="{{ base_dir }}/result.json"
+- local_action: copy content= dest="{{ base_dir }}/output/result.json"
 
-
-
+- name: read
+  shell: |    
+    cat "{{ base_dir }}/output/result.json"
 
 # - name: Copy file with owner and permissions
 #   copy:
