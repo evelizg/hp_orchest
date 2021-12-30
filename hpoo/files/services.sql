@@ -112,6 +112,8 @@ SELECT  ServiceName AS 'ServiceName'
    ,PhysicalSrverName
 FROM #ServiceStatus
 
+FOR JSON AUTO
+
 /*Perform cleanup*/
 
 DROP TABLE #ServiceStatus    

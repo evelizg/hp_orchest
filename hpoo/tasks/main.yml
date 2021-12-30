@@ -23,21 +23,28 @@
 # tasks file for hpoo
 - name: SQL Query
   shell: |    
-    sqlcmd -S {{ server }} -U {{ user }} -P {{ password }} -d {{ database }} -i "hpoo/files/services.sql" -o "{{ base_dir }}/output/result.txt"
+#    sqlcmd -S {{ server }} -U {{ user }} -P {{ password }} -d {{ database }} -i "hpoo/files/services.sql" -o "{{ base_dir }}/output/result.txt"
+    sqlcmd -S {{ server }} -U {{ user }} -P {{ password }} -d {{ database }} -i "hpoo/files/services.sql"
+  register: result
 
 # - name: transform
 #   shell: |    
 #     cat "{{ base_dir }}/output/result.txt" | jq -Rs '{"data": [split("\n") | map(select(length > 0))[] | split(" +";"g") | {"{#ServiceName}": .[0], "{#ServiceStatus}": .[1], "{#StatusDateTime}": .[2], "{#ServerName}": .[3], "{#PhysicalSrverName}": .[4]}]}'
 
+- name: copy the output to a local file
+  copy:
+    content: "{{ result.stdout }}"
+    dest: "{{ base_dir }}/output/result.json"
+  delegate_to: localhost
+
 - name: read
   shell: |
-    cat "{{ base_dir }}/output/result.txt"
+    cat "{{ base_dir }}/output/result.json"
+  register: result02
 
-# - name: copy the output to a local file
-#   copy:
-#     content: "{{ result.stdout }}"
-#     dest: "{{ base_dir }}/output/result.json"
-#   delegate_to: localhost
+- name: show
+  debug:
+    msg: "result02.stdout"
 
 # - name: Copy file with owner and permissions
 #   copy:
