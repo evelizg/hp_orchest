@@ -5,6 +5,30 @@
     sqlcmd -S {{ server }} -U {{ user }} -P {{ password }} -d {{ database }} -i "hpoo/files/services.sql"
   register: result
 
-- name: Mostrar Estado
-  debug:
-    msg: "{{ result.stdout_lines }}"
+- name: Recursively remove directory
+  file:
+    path: "{{ base_dir }}/{{ item }}"
+    state: absent
+  with_items:
+    - "output"
+    #- "data"
+
+- name: Create Directories
+  file:
+    path: "{{ base_dir }}/{{ item }}"
+    state: directory
+    recurse: yes
+    owner: 1000
+    group: 1000
+    mode: 0775
+  with_items:
+    - "output"
+    #- "data"
+
+- name: Copy file with owner and permissions
+  copy:
+    src: result
+    dest: "{{ base_dir }}/result.json"
+    owner: 1000
+    group: 1000
+    mode: '0644'
