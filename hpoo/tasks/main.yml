@@ -3,3 +3,7 @@
 - name: SQL Query
   shell: |    
     sqlcmd -S {{ server }} -U {{ user }} -P {{ password }} -d {{ database }} -i "hpoo/files/services.sql"
+  register: result
+
+- debug: 
+    msg: "{{ result.json | list }}"
