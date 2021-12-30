@@ -44,7 +44,7 @@
 
 - name: show
   debug:
-    msg: "result02.stdout"
+    msg: "{{ result02.stdout }}"
 
 # - name: Copy file with owner and permissions
 #   copy:
