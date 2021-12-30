@@ -23,15 +23,13 @@
 # tasks file for hpoo
 - name: SQL Query
   shell: |    
-    sqlcmd -S {{ server }} -U {{ user }} -P {{ password }} -d {{ database }} -i "hpoo/files/services.sql"
-  register: result
-  ignore_errors: True
+    sqlcmd -S {{ server }} -U {{ user }} -P {{ password }} -d {{ database }} -i "hpoo/files/services.sql" -o "{{ base_dir }}/output/result.json"
 
-- name: copy the output to a local file
-  copy:
-    content: "{{ result.stdout }}"
-    dest: "{{ base_dir }}/output/result.json"
-  delegate_to: localhost
+# - name: copy the output to a local file
+#   copy:
+#     content: "{{ result.stdout }}"
+#     dest: "{{ base_dir }}/output/result.json"
+#   delegate_to: localhost
 
 # - name: Copy file with owner and permissions
 #   copy:
