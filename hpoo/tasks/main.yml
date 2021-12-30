@@ -23,8 +23,7 @@
 # tasks file for hpoo
 - name: SQL Query
   shell: |    
-    sqlcmd :XML ON
-    -S {{ server }} -U {{ user }} -P {{ password }} -d {{ database }} -i "hpoo/files/services.sql" -o "{{ base_dir }}/output/result.json"
+    sqlcmd -S {{ server }} -U {{ user }} -P {{ password }} -d {{ database }} -i "hpoo/files/services.sql" -o "{{ base_dir }}/output/result.json"
 
 - name: read
   shell: |
