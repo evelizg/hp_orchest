@@ -39,7 +39,7 @@
 - name: read
   shell: |
     cat "{{ base_dir }}/output/result.txt"
-  register: result02s
+  register: result02
 
 - name: show
   debug:
