@@ -30,11 +30,11 @@
 #   shell: |    
 #     cat "{{ base_dir }}/output/result.txt" | jq -Rs '{"data": [split("\n") | map(select(length > 0))[] | split(" +";"g") | {"{#ServiceName}": .[0], "{#ServiceStatus}": .[1], "{#StatusDateTime}": .[2], "{#ServerName}": .[3], "{#PhysicalSrverName}": .[4]}]}'
 
-# - name: copy the output to a local file
-#   copy:
-#     content: "{{ result.stdout }}"
-#     dest: "{{ base_dir }}/output/result.txt"
-#   delegate_to: localhost
+- name: copy the output to a local file
+  copy:
+    content: "{{ result.stdout }}"
+    dest: "{{ base_dir }}/output/result.txt"
+  delegate_to: localhost
 
 # - name: read
 #   shell: |
