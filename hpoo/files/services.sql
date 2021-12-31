@@ -105,13 +105,15 @@ END
 
 /* -------------------------------------------------------------------------------------------------------------*/
 
-SELECT  ServiceName AS 'ServiceName'
+/*SELECT  ServiceName AS 'ServiceName'
    ,ServiceStatus AS 'ServiceStatus'
    ,StatusDateTime AS 'StatusDateTime'
    ,ServerName 
    ,PhysicalSrverName
 FROM #ServiceStatus
+*/
 
+select CONCAT(ServiceName, ' ; ' , ServiceStatus, ' ; ' , StatusDateTime, ' ; ' , ServerName, ' ; ' , PhysicalSrverName) as RSLT from #ServiceStatus
 /*Perform cleanup*/
 
 DROP TABLE #ServiceStatus    
