@@ -111,7 +111,7 @@ SELECT  ServiceName AS 'ServiceName'
    ,ServerName 
    ,PhysicalSrverName
 FROM #ServiceStatus
-FOR XML PATH
+
 -- select CONCAT(ServiceName, ' ; ' , ServiceStatus, ' ; ' , StatusDateTime, ' ; ' , ServerName, ' ; ' , PhysicalSrverName) as RSLT from #ServiceStatus
 /*Perform cleanup*/
 
