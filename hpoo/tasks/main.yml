@@ -50,16 +50,18 @@
 
 - name: read
   shell: |
-    cat "{{ base_dir }}/output/mydata3.json"
+    cat "{{ base_dir }}/output/mydata3.json" | jq
   register: result02
 
 - name: show01
   set_fact:
-    jsondata: "{{ result02.stdout | from_json }}"
+    var1: "{{ item.ServiceName }}"
+  loop: "{{ result02 }}"
 
-- name: show02
-  set_fact:
-    ServiceName: "{{ jsondata | json_query('.[].ServiceName') }}"
+- name: print var1
+  debug: 
+    var: var1
+
 
 # - name: Copy file with owner and permissions
 #   copy:
