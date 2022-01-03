@@ -33,7 +33,7 @@
 - name: copy the output to a local file
   copy:
     content: "{{ result.stdout }}"
-    dest: "{{ base_dir }}/output/result.txt"
+    dest: "{{ base_dir }}/output/result.xml"
   delegate_to: localhost
 
 # - name: read
