@@ -55,13 +55,13 @@
     cat "{{ base_dir }}/output/mydata3.json"
   register: result02
 
-- name: show
+- name: show01
   set_fact:
     jsondata: "{{ result02.stdout | from_json }}"
 
-- name: show
+- name: show02
   set_fact:
-    ServiceName: "{{ jsondata | json_query(ServiceName) }}"
+    ServiceName: "{{ jsondata | json_query('ServiceName') }}"
 
 # - name: Copy file with owner and permissions
 #   copy:
