@@ -65,7 +65,7 @@
   set_fact:
     ServiceName: "{{ jsondata | json_query(jmesquery) }}"
   vars:
-    jmesquery: 'ServiceName'
+    jmesquery: '[0].ServiceName'
 
 - name: show
   debug:
