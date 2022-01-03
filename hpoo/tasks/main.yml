@@ -23,7 +23,7 @@
 # tasks file for hpoo
 - name: SQL Query
   shell: |    
-    sqlcmd -S {{ server }} -U {{ user }} -P {{ password }} -d {{ database }} -i "hpoo/files/services.sql"
+    sqlcmd -S {{ server }} -U {{ user }} -P {{ password }} -d {{ database }} -i "hpoo/files/services.sql -o "{{ base_dir }}/output/response.sql"
   register: result
 
 # - name: transform
