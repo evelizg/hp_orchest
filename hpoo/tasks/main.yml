@@ -53,15 +53,19 @@
     cat "{{ base_dir }}/output/mydata3.json"
   register: result02
 
-- name: show01
+- name: set fact
   set_fact:
-    var1: "{{ item.ServiceName }}"
-  loop: "{{ result02 }}"
+    jsondata: "{{ result02.stdout | from_json }}"
 
-- name: print var1
-  debug: 
-    var: var1
+- name: read Object
+  set_fact:
+    ServiceName: "{{ jsondata | json_query(jmesquery) }}"
+  vars:
+    jmesquery: 'ServiceName'
 
+- name: show
+  debug:
+    var: ServiceName
 
 # - name: Copy file with owner and permissions
 #   copy:
