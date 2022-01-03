@@ -48,8 +48,6 @@
   shell: |
     mlr --c2j --jlistwrap cat /var/output/mydata2.csv > /var/output/mydata3.json
 
-
-
 - name: read
   shell: |
     cat "{{ base_dir }}/output/mydata3.json"
@@ -61,7 +59,7 @@
 
 - name: show02
   set_fact:
-    ServiceName: "{{ jsondata | json_query('ServiceName') }}"
+    ServiceName: "{{ jsondata | json_query('.[].ServiceName') }}"
 
 # - name: Copy file with owner and permissions
 #   copy:
