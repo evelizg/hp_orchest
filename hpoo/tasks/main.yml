@@ -38,7 +38,7 @@
 
 - name: Transform01
   shell: |
-    cat /var/output/MyData.csv | tr -d " " > /var/output/mydata2.csv
+    cat /var/output/mydata.csv | tr -d " " > /var/output/mydata2.csv
 
 # - name: Transform02
 #   shell: |
