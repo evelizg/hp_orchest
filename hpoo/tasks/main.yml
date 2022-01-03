@@ -49,14 +49,14 @@
     mlr --c2j --jlistwrap cat /var/output/mydata2.csv > /var/output/mydata3.json
 
 
-# - name: read
-#   shell: |
-#     cat "{{ base_dir }}/output/result.txt"
-#   register: result02
+- name: read
+  shell: |
+    cat "{{ base_dir }}/output/mydata3.json"
+  register: result02
 
-# - name: show
-#   debug:
-#     msg: "{{ result02.stdout }}"
+- name: show
+  debug:
+    msg: "{{ result02.stdout }}"
 
 # - name: Copy file with owner and permissions
 #   copy:
