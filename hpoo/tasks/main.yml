@@ -44,6 +44,11 @@
   shell: |
     sed -i -e '1iServiceName,ServiceStatus,StatusDateTime,ServerName,PhysicalSrverName' /var/output/mydata2.csv
 
+- name: Transform03
+  shell: |
+    mlr --c2j --jlistwrap cat /var/output/mydata2.csv > /var/output/mydata3.json
+
+
 # - name: read
 #   shell: |
 #     cat "{{ base_dir }}/output/result.txt"
