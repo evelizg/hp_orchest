@@ -48,9 +48,13 @@
   shell: |
     mlr --c2j --jlistwrap cat /var/output/mydata2.csv > /var/output/mydata3.json
 
+- name: Transform04
+  shell: |
+    cat /var/output/mydata3.json | jq . > /var/output/json.json
+
 - name: read
   shell: |
-    cat "{{ base_dir }}/output/mydata3.json"
+    cat "{{ base_dir }}/output/json.json"
   register: result02
 
 - name: set fact
@@ -63,9 +67,9 @@
   vars:
     jmesquery: 'ServiceName'
 
-- name: show
-  debug:
-    var: ServiceName
+# - name: show
+#   debug:
+#     var: ServiceName
 
 # - name: Copy file with owner and permissions
 #   copy:
