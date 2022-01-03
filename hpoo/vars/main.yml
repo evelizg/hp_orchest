@@ -3,5 +3,6 @@
 server: 10.100.13.23
 user: sa
 password: m3j0r4Passw0rd
-database: master
+#database: master
+database: demo
 base_dir: "/var"
