@@ -40,9 +40,9 @@
   shell: |
     cat /var/output/mydata.csv | tr -d " " > /var/output/mydata2.csv
 
-# - name: Transform02
-#   shell: |
-#     sed -i -e '1iServiceName,ServiceStatus,StatusDateTime,ServerName,PhysicalSrverName' /var/output/mydata2.csv
+- name: Transform02
+  shell: |
+    sed -i -e '1iServiceName,ServiceStatus,StatusDateTime,ServerName,PhysicalSrverName' /var/output/mydata2.csv
 
 # - name: read
 #   shell: |
