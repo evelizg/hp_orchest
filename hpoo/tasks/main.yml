@@ -67,9 +67,9 @@
   vars:
     jmesquery: 'ServiceName'
 
-# - name: show
-#   debug:
-#     var: ServiceName
+- name: show
+  debug:
+    var: ServiceName
 
 # - name: Copy file with owner and permissions
 #   copy:
