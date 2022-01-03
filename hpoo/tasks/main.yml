@@ -50,7 +50,7 @@
 
 - name: read
   shell: |
-    cat "{{ base_dir }}/output/mydata3.json" | jq
+    cat "{{ base_dir }}/output/mydata3.json"
   register: result02
 
 - name: show01
