@@ -104,7 +104,7 @@ END
 
 
 /* -------------------------------------------------------------------------------------------------------------*/
-
+/*
 SELECT  ServiceName AS 'ServiceName'
    ,ServiceStatus AS 'ServiceStatus'
    ,StatusDateTime AS 'StatusDateTime'
@@ -112,8 +112,8 @@ SELECT  ServiceName AS 'ServiceName'
    ,PhysicalSrverName
 FROM #ServiceStatus
 FOR JSON AUTO
-
--- select CONCAT(ServiceName, ' ; ' , ServiceStatus, ' ; ' , StatusDateTime, ' ; ' , ServerName, ' ; ' , PhysicalSrverName) as RSLT from #ServiceStatus
+*/
+select CONCAT(ServiceName, ' ; ' , ServiceStatus, ' ; ' , StatusDateTime, ' ; ' , ServerName, ' ; ' , PhysicalSrverName) as RSLT from #ServiceStatus
 /*Perform cleanup*/
 
 DROP TABLE #ServiceStatus    

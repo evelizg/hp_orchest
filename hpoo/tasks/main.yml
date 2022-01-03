@@ -23,7 +23,7 @@
 # tasks file for hpoo
 - name: SQL Query
   shell: |
-    sqlcmd -S {{ server }} -U {{ user }} -P {{ password }} -d {{ database }} -i "hpoo/files/services.sql" | jq
+    sqlcmd -S {{ server }} -U {{ user }} -P {{ password }} -d {{ database }} -i "hpoo/files/services.sql"
   register: result
 
 # - name: transform
@@ -33,7 +33,7 @@
 - name: copy the output to a local file
   copy:
     content: "{{ result.stdout }}"
-    dest: "{{ base_dir }}/output/result.json"
+    dest: "{{ base_dir }}/output/result.txt"
   delegate_to: localhost
 
 # - name: read
